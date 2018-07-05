@@ -8,9 +8,9 @@
 
 - (void)ready:(CDVInvokedUrlCommand*)command;
 
-- (void)deleteCookiesForHost:(CDVInvokedUrlCommand*)command;
+- (void)deleteCookiesFromHost:(CDVInvokedUrlCommand*)command;
 - (void)deleteAllCookies:(CDVInvokedUrlCommand*)command;
 - (void)getAllCookies:(CDVInvokedUrlCommand*)command;
-- (void)getCookiesForHost:(CDVInvokedUrlCommand*)command;
+- (void)getCookiesFromHost:(CDVInvokedUrlCommand*)command;
 
 @end

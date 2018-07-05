@@ -52,7 +52,7 @@
     return cookiesJson;
 }
 
-- (NSMutableArray *)_getCookiesArrayForHost:(NSString *)host {
+- (NSMutableArray *)_getCookiesArrayfromHost:(NSString *)host {
     NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *cookies = [cookieStorage cookies];
     NSMutableArray *cookiesJson = [NSMutableArray array];
@@ -65,7 +65,7 @@
     return cookiesJson;
 }
 
-- (void)_deleteCookiesArrayForHost:(NSString *)host {
+- (void)_deleteCookiesArrayfromHost:(NSString *)host {
     NSHTTPCookieStorage *cookieStorage = [NSHTTPCookieStorage sharedHTTPCookieStorage];
     NSArray *cookies = [cookieStorage cookies];
     for (int i = 0; i < [cookies count]; i++) {
@@ -76,11 +76,11 @@
     }
 }
 
-- (void)deleteCookiesForHost:(CDVInvokedUrlCommand *)command {
+- (void)deleteCookiesfromHost:(CDVInvokedUrlCommand *)command {
     NSString *host = command.arguments[0];
-    NSLog(@"[CookiesPlugin] deleteCookiesForHost %@", host);
+    NSLog(@"[CookiesPlugin] deleteCookiesfromHost %@", host);
     [self.commandDelegate runInBackground:^{
-        [self _deleteCookiesArrayForHost:host];
+        [self _deleteCookiesArrayfromHost:host];
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
@@ -101,11 +101,11 @@
     }];
 }
 
-- (void)getCookiesForHost:(CDVInvokedUrlCommand *)command {
+- (void)getCookiesfromHost:(CDVInvokedUrlCommand *)command {
     NSString *host = command.arguments[0];
-    NSLog(@"[CookiesPlugin] getCookiesForHost %@", host);
+    NSLog(@"[CookiesPlugin] getCookiesfromHost %@", host);
     [self.commandDelegate runInBackground:^{
-        NSArray *cookiesJson = [self _getCookiesArrayForHost: host];
+        NSArray *cookiesJson = [self _getCookiesArrayfromHost: host];
         CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:cookiesJson];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];

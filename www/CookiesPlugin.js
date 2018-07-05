@@ -10,9 +10,9 @@ CookiesPlugin.prototype.getAllCookies = function () {
   })
 }
 
-CookiesPlugin.prototype.getCookiesForHost = function (host) {
+CookiesPlugin.prototype.getCookiesFromHost = function (host) {
   return new Promise(function (resolve, reject) {
-    exec(resolve, reject, 'CookiesPlugin', 'getCookiesForHost', [host])
+    exec(resolve, reject, 'CookiesPlugin', 'getCookiesFromHost', [host])
   })
 }
 
@@ -22,9 +22,9 @@ CookiesPlugin.prototype.deleteAllCookies = function () {
   })
 }
 
-CookiesPlugin.prototype.deleteCookiesForHost = function (host) {
+CookiesPlugin.prototype.deleteCookiesFromHost = function (host) {
   return new Promise(function (resolve, reject) {
-    exec(resolve, reject, 'CookiesPlugin', 'deleteCookiesForHost', [host])
+    exec(resolve, reject, 'CookiesPlugin', 'deleteCookiesFromHost', [host])
   })
 }
 
