@@ -26,7 +26,9 @@
     cookieDescription[@"value"] = [[cookie value] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     cookieDescription[@"domain"] = [cookie domain];
     cookieDescription[@"path"] = [cookie path];
-    cookieDescription[@"expiresDate"] = [cookie expiresDate];
+    cookieDescription[@"expiresDate"] = [NSDateFormatter localizedStringFromDate:[NSDate date]
+                                                                       dateStyle:NSDateFormatterShortStyle
+                                                                       timeStyle:NSDateFormatterFullStyle];
     cookieDescription[@"sessionOnly"] = [cookie isSessionOnly] ? @(1) : @(0);
     cookieDescription[@"secure"] = [cookie isSecure] ? @(1) : @(0);
     cookieDescription[@"comment"] = [cookie comment];
@@ -56,7 +58,7 @@
     NSMutableArray *cookiesJson = [NSMutableArray array];
     for (int i = 0; i < [cookies count]; i++) {
         NSHTTPCookie *cookie = cookies[i];
-        if ([[cookie domain] hasSuffix:host]) {
+        if ([[cookie domain] hasSuffix:[NSString stringWithFormat:@".%@", host]]) {
             [cookiesJson addObject:[self cookieDescription:cookies[i]]];
         }
     }
@@ -68,7 +70,7 @@
     NSArray *cookies = [cookieStorage cookies];
     for (int i = 0; i < [cookies count]; i++) {
         NSHTTPCookie *cookie = cookies[i];
-        if ([[cookie domain] hasSuffix:host]) {
+        if ([[cookie domain] hasSuffix:[NSString stringWithFormat:@".%@", host]]) {
             [cookieStorage deleteCookie:cookie];
         }
     }
@@ -104,7 +106,7 @@
     NSLog(@"[CookiesPlugin] getCookiesForHost %@", host);
     [self.commandDelegate runInBackground:^{
         NSArray *cookiesJson = [self _getCookiesArrayForHost: host];
-        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK];
+        CDVPluginResult *pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsArray:cookiesJson];
         [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
     }];
 }
