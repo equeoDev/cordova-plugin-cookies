@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "cordova-plugin-cookies",
+  "cordova_name": "Cordova Plugin Cookies",
+  "description": "This plugin allows you to delete cookies in the WKWebview for specific hosts",
+  "author": {
+    "name": "Henry Moews",
+    "email": "henry.moews@equeo.de"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:equeoDev/cordova-plugin-cookies.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "ios",
+    "cordova",
+    "cookies"
+  ],
+  "platforms": [
+    "ios"
+  ],
+  "engines": [],
+  "englishdoc": ""
+}

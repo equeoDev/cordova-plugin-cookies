@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+   License information coming here
+-->
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+           id="cordova-plugin-cookies"
+      version="1.0.0">
+    <name>FCMSafeturePlugin</name>
+    <description>Cordova Cookie Plugin</description>
+    <license>Unlicensed</license>
+    <keywords>cordova, plugin, wkwebview, cookies</keywords>
+	
+    <js-module src="www/CookiesPlugin.js" name="CookiesPlugin">
+		<clobbers target="CookiesPlugin" />
+    </js-module>
+
+    <!-- IOS CONFIGURATION -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="CookiesPlugin">
+                <param name="ios-package" value="CookiesPlugin"/>
+            </feature>
+        </config-file>
+		
+        <header-file src="src/ios/CookiesPlugin.h" />
+        <source-file src="src/ios/CookiesPlugin.m" />
+    </platform>
+	
+</plugin>
