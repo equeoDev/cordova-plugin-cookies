@@ -4,25 +4,25 @@ function CookiesPlugin () {
   console.log('SafeturePlugin.js: is created')
 }
 
-SafeturePlugin.prototype.getAllCookies = function () {
+CookiesPlugin.prototype.getAllCookies = function () {
   return new Promise(function (resolve, reject) {
     exec(resolve, reject, 'SafeturePlugin', 'getAllCookies', [])
   })
 }
 
-SafeturePlugin.prototype.getCookiesForHost = function (host) {
+CookiesPlugin.prototype.getCookiesForHost = function (host) {
   return new Promise(function (resolve, reject) {
     exec(resolve, reject, 'SafeturePlugin', 'getCookiesForHost', [host])
   })
 }
 
-SafeturePlugin.prototype.deleteAllCookies = function () {
+CookiesPlugin.prototype.deleteAllCookies = function () {
   return new Promise(function (resolve, reject) {
     exec(resolve, reject, 'SafeturePlugin', 'deleteAllCookies', [])
   })
 }
 
-SafeturePlugin.prototype.deleteCookiesForHost = function (host) {
+CookiesPlugin.prototype.deleteCookiesForHost = function (host) {
   return new Promise(function (resolve, reject) {
     exec(resolve, reject, 'SafeturePlugin', 'deleteCookiesForHost', [host])
   })
