@@ -1,30 +1,30 @@
 var exec = require('cordova/exec')
 
 function CookiesPlugin () {
-  console.log('SafeturePlugin.js: is created')
+  console.log('CookiesPlugin.js: is created')
 }
 
 CookiesPlugin.prototype.getAllCookies = function () {
   return new Promise(function (resolve, reject) {
-    exec(resolve, reject, 'SafeturePlugin', 'getAllCookies', [])
+    exec(resolve, reject, 'CookiesPlugin', 'getAllCookies', [])
   })
 }
 
 CookiesPlugin.prototype.getCookiesForHost = function (host) {
   return new Promise(function (resolve, reject) {
-    exec(resolve, reject, 'SafeturePlugin', 'getCookiesForHost', [host])
+    exec(resolve, reject, 'CookiesPlugin', 'getCookiesForHost', [host])
   })
 }
 
 CookiesPlugin.prototype.deleteAllCookies = function () {
   return new Promise(function (resolve, reject) {
-    exec(resolve, reject, 'SafeturePlugin', 'deleteAllCookies', [])
+    exec(resolve, reject, 'CookiesPlugin', 'deleteAllCookies', [])
   })
 }
 
 CookiesPlugin.prototype.deleteCookiesForHost = function (host) {
   return new Promise(function (resolve, reject) {
-    exec(resolve, reject, 'SafeturePlugin', 'deleteCookiesForHost', [host])
+    exec(resolve, reject, 'CookiesPlugin', 'deleteCookiesForHost', [host])
   })
 }
 
